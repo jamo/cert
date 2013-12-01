@@ -16,7 +16,7 @@ See [frontend/Readme.md](frontend/Readme.md) for more info.
 ## How to use?
 
 Better instructions are included in each projects readme
-* [cert_open_data_visualizer/Readme.md](cert_open_data_visualizer/Readme.md)
+* [cert_open_data_visualizer/README.md](cert_open_data_visualizer/README.md)
 * [frontend/Readme.md](frontend/Readme.md)
 
 Guides expect that ruby 1.9.3 or newer is installed and you have permission to install gems.
