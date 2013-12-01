@@ -19,7 +19,6 @@ class CertDataVisualizer
 
   def clean_cache!
     DummyCacher.new.clean!
-
   end
 end
 
