@@ -51,7 +51,6 @@ module CertOpenDataVisualizer
       csvs = []
       Dir.chdir (@cacher.path) do
         files.each do |file|
-          lines = File.readlines file
           csvs += CSV.read file, col_sep: "|"
         end
         csvs.reject! {|row| row[0].include?('#') || row[5].nil? || row[5] == ""}

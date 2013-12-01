@@ -53,11 +53,6 @@ module CertOpenDataVisualizer
       load_data! if @data.nil?
       @data.each do |row|
         main_incident = row[5]
-        if row[5] == ""
-          puts "#{'*'* 400}"
-          puts row.inspect
-          puts "#{'*'* 400}"
-        end
         if incidents[main_incident]
           incidents[main_incident] = incidents[main_incident] + 1
         else
