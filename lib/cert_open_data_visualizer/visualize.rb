@@ -42,7 +42,7 @@ module CertOpenDataVisualizer
     end
 
     def read_and_merge_files(files)
-      @all_csv = get_csvs(files)
+      @all_data = get_csvs(files)
     end
 
     private
