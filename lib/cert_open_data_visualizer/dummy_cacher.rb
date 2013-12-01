@@ -51,7 +51,7 @@ module CertOpenDataVisualizer
       File.join(Dir.tmpdir, "cert")
     end
 
-    def clear!
+    def clean!
       FilrUtils.rm_rf path
     end
 
