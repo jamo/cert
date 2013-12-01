@@ -14,7 +14,10 @@ module CertOpenDataVisualizer
                   first: "print_first_format",
                   second: "print_second_format",
                   help: "print_help"}
+
+      return help if @argv[0].nil?
       command = @argv[0].to_sym
+
       exec = commands[command]
 
       return help if exec == "print_help"
