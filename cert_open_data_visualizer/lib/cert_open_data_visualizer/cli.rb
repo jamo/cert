@@ -24,7 +24,7 @@ module CertOpenDataVisualizer
 
 
     def help
-      str <<<EOF
+      puts <<EOF
 CertOpenDataVisualizer
 Commands are:
   first  - prints results in format required for first print
