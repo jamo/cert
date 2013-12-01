@@ -1,6 +1,7 @@
 module CertOpenDataVisualizer
   class Formatter
     attr_accessor :data, :cacher, :visualizer
+
     def initialize
       @visualizer = Visualize.new
       @cacher = @visualizer.cacher
@@ -46,10 +47,17 @@ module CertOpenDataVisualizer
     end
 
 
+    private
     def count_main_incidents
       incidents = {}
+      load_data! if @data.nil?
       @data.each do |row|
         main_incident = row[5]
+        if row[5] == ""
+          puts "#{'*'* 400}"
+          puts row.inspect
+          puts "#{'*'* 400}"
+        end
         if incidents[main_incident]
           incidents[main_incident] = incidents[main_incident] + 1
         else
@@ -61,6 +69,7 @@ module CertOpenDataVisualizer
 
     def count_incidents_based_on_location
       incidents = {}
+      load_data! if @data.nil?
       @data.each do |row|
         ccode, city = row[7], row[8]
         name = "#{ccode}#{city}"

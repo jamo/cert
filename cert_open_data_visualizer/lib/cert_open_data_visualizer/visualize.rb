@@ -54,7 +54,7 @@ module CertOpenDataVisualizer
           lines = File.readlines file
           csvs += CSV.read file, col_sep: "|"
         end
-        csvs.reject! {|row| row[0] == '#'}
+        csvs.reject! {|row| row[0].include?('#') || row[5].nil? || row[5] == ""}
         csvs
       end
     end
