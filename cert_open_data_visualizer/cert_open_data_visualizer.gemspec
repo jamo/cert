@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = CertOpenDataVisualizer::VERSION
   spec.authors       = ["Jarmo Isotalo"]
   spec.email         = ["jamo@isotalo.fi"]
-  spec.description   = %q{Write a gem description}
-  spec.summary       = %q{Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Jarmo Isotalo's application project for software factory}
+  spec.summary       = %q{Library and commandline client for processing CERT.fi open data - https://www.cert.fi/en/reports/statistics/opendata.html}
+  spec.homepage      = "https://github.com/jamox/cert"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split("\n")

@@ -2,6 +2,7 @@ require "cert_open_data_visualizer/version"
 require "cert_open_data_visualizer/visualize"
 require "cert_open_data_visualizer/dummy_cacher"
 require "cert_open_data_visualizer/formatter"
+require "cert_open_data_visualizer/cli"
 
 class CertDataVisualizer
   attr_accessor :formatter

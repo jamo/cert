@@ -27,7 +27,7 @@ module CertOpenDataVisualizer
     end
 
     def download
-      puts "downloading"
+      puts "Downloading, may take a while depending on your connection"
       data = HTTParty.get(CSV_DATA_URL).body
       write_tmp_file(data)
     end
