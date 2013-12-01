@@ -1,12 +1,12 @@
 module CertOpenDataVisualizer
-  class CLI
+  class Cli
     attr_accessor :argv
-    def self.start(argv)
+
+    def initialize(argv)
       @argv = argv
-      handle
     end
 
-    def self.handle
+    def start
       visualizer = CertDataVisualizer.new
       commands = {fetch: "fetch!",
                   clean: "clean_cache!",
@@ -22,11 +22,9 @@ module CertOpenDataVisualizer
     end
 
 
-    def self.help
+    def help
       puts "CertOpenDataVisualizer" <<
       " Valid commands are TBA"
-
-
     end
   end
 end

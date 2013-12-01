@@ -7,4 +7,4 @@ rescue LoadError
   require 'cert_open_data_visualizer'
 end
 
-CertOpenDataVisualizer::CLI.start(ARGV)
+CertOpenDataVisualizer::Cli.start(ARGV)
