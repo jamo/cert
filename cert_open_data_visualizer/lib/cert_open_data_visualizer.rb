@@ -13,8 +13,16 @@ class CertDataVisualizer
     @formatter.first_format
   end
 
+  def print_first_format
+    puts first_format
+  end
+
   def second_format
     @formatter.second_format
+  end
+
+  def print_second_format
+    puts second_format
   end
 
   def clean_cache!
