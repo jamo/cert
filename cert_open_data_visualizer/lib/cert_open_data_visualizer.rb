@@ -26,11 +26,11 @@ class CertDataVisualizer
   end
 
   def clean_cache!
-    DummyCacher.new.clean!
+    CertOpenDataVisualizer::DummyCacher.new.clean!
   end
 
   def fetch!
-   @formatter.data = Visualize.new.parse.all_data
+   @formatter.data = CertOpenDataVisualizer::Visualize.new.parse.all_data
   end
 
 end

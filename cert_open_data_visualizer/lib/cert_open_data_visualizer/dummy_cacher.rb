@@ -52,7 +52,7 @@ module CertOpenDataVisualizer
     end
 
     def clean!
-      FilrUtils.rm_rf path
+      FileUtils.rm_rf path
     end
 
   end
