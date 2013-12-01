@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'cert_open_data_visualizer'
+rescue LoadError
+  require 'rubygems'
+  require 'cert_open_data_visualizer'
+end
+
+CertOpenDataVisualizer::CLI.start(ARGV)
