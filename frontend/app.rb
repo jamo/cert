@@ -6,8 +6,13 @@ class App < Sinatra::Base
 
   get '/' do
     @visualizer ||= CertDataVisualizer.new
+    if params[:reload]
+      @visualizer.clean_cache!
+      @visualizer.fetch!
+    end
+
     @first_format ||= @visualizer.first_format
-    @seconf_format ||= @visualizer.second_formt
+    @second_format ||= @visualizer.second_format
     haml :index
   end
 
