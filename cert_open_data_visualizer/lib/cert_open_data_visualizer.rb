@@ -20,6 +20,11 @@ class CertDataVisualizer
   def clean_cache!
     DummyCacher.new.clean!
   end
+
+  def fetch!
+   @formatter.data = Visualize.new.parse.all_data
+  end
+
 end
 
 module CertOpenDataVisualizer
