@@ -12,9 +12,11 @@
 
   %body
     %ul.nav.nav-pills
-      %li.actice
-        %a{href: "#"}Home
-      %li.actice
-        %a{href: "/reload"}Reload - it may take a while
+      %li.active
+        %a{href: "/"}Home
+      %li.active
+        %a{href: "/charts"}Charts
+      %li.active
+        %a{href: "/reload"}Reload
     .container
       =yield

@@ -28,6 +28,11 @@ class App < Sinatra::Base
 
 
   get '/reload' do
+    haml :reset
+  end
+
+  get '/reset' do
+    @visualizer ||= CertDataVisualizer.new
     @visualizer.clean_cache!
     @visualizer.fetch!
     redirect to('/')
