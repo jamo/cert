@@ -3,6 +3,7 @@ module CertOpenDataVisualizer
   require 'httparty'
   require 'tmpdir'
   require 'csv'
+
   class Visualize
     attr_accessor :all_data, :cacher
     CSV_DATA_URL = "http://pilvilinna.cert.fi/opendata/autoreporter/csv.zip"
@@ -20,6 +21,7 @@ module CertOpenDataVisualizer
 
     def maybe_download
       if @cacher.file_exists?("cert.zip")
+        puts "Loading data from cache"
         @cacher.get_from_cache("cert.zip")
       else
         download
@@ -29,6 +31,7 @@ module CertOpenDataVisualizer
     def download
       puts "Downloading, may take a while depending on your connection"
       data = HTTParty.get(CSV_DATA_URL).body
+      puts "Done"
       write_tmp_file(data)
     end
 
@@ -56,6 +59,8 @@ module CertOpenDataVisualizer
         csvs.reject! {|row| row[0].include?('#') || row[5].nil? || row[5] == ""}
         csvs
       end
+      puts "Done"
+      csvs
     end
 
   end

@@ -9,9 +9,8 @@ module CertOpenDataVisualizer
     end
 
     # Yep, well just overwrite it if it exists
-    def cache_file(path)
-      FileUtils.mkdir_p( File.join(Dir.tmpdir, "cert"))
-      FileUtils.cp(path, File.join(Dir.tmpdir, "cert"))
+    def cache_file(file)
+      FileUtils.cp(file, path)
     end
 
     def write_file_to_cache(filename, contents)

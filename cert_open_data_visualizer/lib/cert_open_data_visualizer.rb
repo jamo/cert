@@ -27,7 +27,9 @@ class CertDataVisualizer
   end
 
   def clean_cache!
+    puts "Cleaning cache!"
     CertOpenDataVisualizer::DummyCacher.new.clean!
+    puts "Done!"
   end
 
   def fetch!
