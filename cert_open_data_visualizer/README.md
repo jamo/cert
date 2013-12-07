@@ -71,7 +71,7 @@ visualizer.first_format
 visualizer.second_format
 
 # Will crear cache. After this you need explicitely redownload everything (or create new instance)
-visualiser.crear_cache!
+visualiser.clear_cache!
 # will redownload and reparse everything if needed
 visualizer.fetch!
 ```
