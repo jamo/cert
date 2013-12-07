@@ -66,7 +66,7 @@ module CertOpenDataVisualizer
         if results[country].nil?
           results[country] = { city => { main => { sub => 1 } }}
         elsif results[country][city].nil?
-          results[country][city] = {main => { sub => 1 } }
+          results[country][city] = { main => { sub => 1 } }
         elsif results[country][city][main].nil?
           results[country][city][main] = { sub => 1 }
         elsif results[country][city][main][sub].nil?
