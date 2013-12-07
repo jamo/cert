@@ -7,7 +7,8 @@ This Gem includes a library functionality as well as command line client
 
 ## Whats new?
 
-Included visualization app to gem - cert
+- Included visualization app to gem - `cert_open_data_visualizer app`
+- Filter list by city name, and show details for those cities (name can match partially) `cert_open_data_visualizer city hel`
 
 
 ## Installation
