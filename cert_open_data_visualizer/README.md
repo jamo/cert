@@ -5,6 +5,11 @@ This is a gem for analysing cert open data, and givs twi exactly specified outpu
 
 This Gem includes a library functionality as well as command line client
 
+## Whats new?
+
+Included visualization app to gem - cert
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -33,6 +38,7 @@ $ cert_open_data_visualizer #=> prints help
 #=>   help   - shows this
 #=>   clean  - cleanes cache
 #=>   fetch  - fetches new data if neccessary
+#=>   app    - launces web server for visualizations in http://127.0.0.1:4567
 #=>
 #=> `first` and `second` may download and parse data when neccesary.
 #=>

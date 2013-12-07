@@ -3,7 +3,7 @@ require "cert_open_data_visualizer/visualize"
 require "cert_open_data_visualizer/dummy_cacher"
 require "cert_open_data_visualizer/formatter"
 require "cert_open_data_visualizer/cli"
-
+require "cert_open_data_visualizer/frontend/app"
 class CertDataVisualizer
   attr_accessor :formatter
   def initialize

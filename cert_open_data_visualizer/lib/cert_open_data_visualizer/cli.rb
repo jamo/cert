@@ -38,6 +38,7 @@ Commands are:
   help   - shows this
   clean  - cleanes cache
   fetch  - fetches new data if neccessary
+  app    - launces web server for visualizations in http://127.0.0.1:4567
 
 `first` and `second` may download and parse data when neccesary.
 
@@ -45,13 +46,12 @@ This includes a file cache, for faster results.
 ie. information is calculated only when necessary, and cached for
 further use. Cache may be cleared using `clean`
 EOF
-
     end
 
-    def start_app
-
-
+    def run_app
+      CertOpenDataVisualizer::Frontend::App.run!
     end
+
   end
 end
 

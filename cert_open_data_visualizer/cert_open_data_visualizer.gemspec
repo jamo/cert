@@ -18,6 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+gem 'sinatra'
+gem 'haml'
+
+  spec.add_dependency "haml", "~> 4.0.4 "
   spec.add_dependency "sinatra", "~> 1.4.4 "
   spec.add_dependency "httparty", "~> 0.12.0 "
   spec.add_development_dependency "bundler", "~> 1.3"
