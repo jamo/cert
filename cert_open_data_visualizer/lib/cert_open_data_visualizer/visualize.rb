@@ -3,6 +3,7 @@ module CertOpenDataVisualizer
   require 'httparty'
   require 'tmpdir'
   require 'csv'
+  require 'json'
 
   class Visualize
     attr_accessor :all_data, :cacher
@@ -14,15 +15,14 @@ module CertOpenDataVisualizer
 
     def parse
       maybe_download
-      files = extract_and_list_files
-      read_and_merge_files(files)
+      files = maybe_extract_and_list_files
+      maybe_read_and_merge_files(files)
       self
     end
 
     def maybe_download
       if @cacher.file_exists?("cert.zip")
-        puts "Loading data from cache"
-        @cacher.get_from_cache("cert.zip")
+        puts "File found in cache, not downloading"
       else
         download
       end
@@ -32,20 +32,28 @@ module CertOpenDataVisualizer
       puts "Downloading, may take a while depending on your connection"
       data = HTTParty.get(CSV_DATA_URL).body
       puts "Done"
-      write_tmp_file(data)
+      write_tmp_file("cert.zip", data)
     end
 
-    def write_tmp_file(contents)
-      @cacher.write_file_to_cache "cert.zip", contents
+    def write_tmp_file(filename, contents)
+      @cacher.write_file_to_cache filename, contents
     end
 
-    def extract_and_list_files
-      @cacher.unzip_file("cert.zip")
+    def maybe_extract_and_list_files
+      if @cacher.file_exists? "cert.zip" and not @cacher.file_exists? "certfi_autoreporter_opendata_2006.csv"
+        @cacher.unzip_file("cert.zip")
+      end
       @cacher.find_files_matching("*.csv")
     end
 
-    def read_and_merge_files(files)
-      @all_data = get_csvs(files)
+    def maybe_read_and_merge_files(files)
+      if @cacher.file_exists? "all_data.json"
+        @all_data = JSON.parse(File.read(@cacher.get_from_cache("all_data.json")))
+      else
+        @all_data = get_csvs(files)
+        write_tmp_file("all_data.json", @all_data.to_json)
+      end
+      @all_data
     end
 
     private

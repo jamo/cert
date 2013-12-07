@@ -46,6 +46,55 @@ module CertOpenDataVisualizer
       incidents_str
     end
 
+    def filter_by_city(name)
+      # get everything matching
+      load_data! if @data.nil?
+      filterd = @data.select do |line|
+        line[8].downcase.include? name
+      end
+
+      # create hash for formatting
+      results = generate_city_hash(filterd)
+      # print in nice format
+      print_city_results(results)
+    end
+
+    def generate_city_hash(list)
+      results = {}
+      list.each do |l|
+        country, city, main, sub = l[7], l[8], l[5], l[6]
+        if results[country].nil?
+          results[country] = { city => { main => { sub => 1 } }}
+        elsif results[country][city].nil?
+          results[country][city] = {main => { sub => 1 } }
+        elsif results[country][city][main].nil?
+          results[country][city][main] = { sub => 1 }
+        elsif results[country][city][main][sub].nil?
+          results[country][city][main][sub] = 1
+        else
+          results[country][city][main][sub] += 1
+        end
+      end
+      results
+    end
+
+    def print_city_results(results)
+      results.keys.each do |country|
+        puts "#{country}:"
+        next if results[country].nil?
+        results[country].keys.each do |city|
+          puts "  #{city}:"
+          next if results[country][city].nil?
+          results[country][city].keys.each do |main|
+            puts "    #{main}:"
+            next if results[country][city][main].nil?
+            results[country][city][main].keys.each do |sub|
+              puts "      #{sub}: #{results[country][city][main][sub] }"
+            end
+          end
+        end
+      end
+    end
 
     private
     def count_main_incidents

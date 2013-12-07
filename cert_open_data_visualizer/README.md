@@ -39,10 +39,13 @@ $ cert_open_data_visualizer #=> prints help
 #=>   clean  - cleanes cache
 #=>   fetch  - fetches new data if neccessary
 #=>   app    - launces web server for visualizations in http://127.0.0.1:4567
+#=>   city   - `city hel` - list details for each city containing `hel`
 #=>
-#=> `first` and `second` may download and parse data when neccesary.
+#=> Commands may download and parse data when neccesary.
+#=> Data is cached so running commands gest faster when repeating those.
 #=>
-#=> This includes a file cache, for faster results.
+
+#=> A file cache is utilised for faster results.
 #=> ie. information is calculated only when necessary, and cached for
 #=> further use. Cache may be cleared using `clean`
 
@@ -51,6 +54,10 @@ $ cert_open_data_visualizer first #=> Prints output specified by exercise descri
 $ cert_open_data_visualizer second #=> Prints output specified by exercise description
 
 $ cert_open_data_visualizer clean #=> Cleans cache
+
+$ cert_open_data_visualizer city hel # Lists cities containing word given as parameter
+                                     # If multiple parameters are given, results are
+                                     # listed separately for each
 ```
 
 #### Example using this as a library

@@ -26,6 +26,12 @@ class CertDataVisualizer
     puts second_format
   end
 
+  def filter_by_city(*citys)
+    citys.each do |city|
+      @formatter.filter_by_city(city)
+    end
+  end
+
   def clean_cache!
     puts "Cleaning cache!"
     CertOpenDataVisualizer::DummyCacher.new.clean!
