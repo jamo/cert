@@ -3,7 +3,7 @@
 ## Structure
 This progamming assignment is divided to two folders
 * CertOpenGataVisualizer gem
-* Frontend
+* Frontend (almost deprecated (useful only when depoying it to server - can easily be deployed with phusion passenger...)
 
 ### CertOpenGataVisualizer gem
 I created a simple gem for fetching and processing [Cert Open Data](https://www.cert.fi/en/reports/statistics/opendata.html)
