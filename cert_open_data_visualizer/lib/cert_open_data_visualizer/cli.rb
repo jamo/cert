@@ -13,12 +13,15 @@ module CertOpenDataVisualizer
                   crear: "clean_cache!",
                   first: "print_first_format",
                   second: "print_second_format",
+                  app: "start-app",
                   help: "print_help"}
 
       return help if @argv[0].nil?
       command = @argv[0].to_sym
 
       exec = commands[command]
+
+      return run_app if exec == "start-app"
 
       return help if exec == "print_help"
       return visualizer.send(exec) if exec
@@ -42,6 +45,11 @@ This includes a file cache, for faster results.
 ie. information is calculated only when necessary, and cached for
 further use. Cache may be cleared using `clean`
 EOF
+
+    end
+
+    def start_app
+
 
     end
   end

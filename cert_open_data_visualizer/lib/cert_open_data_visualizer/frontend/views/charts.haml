@@ -1,0 +1,74 @@
+
+:javascript
+  google.load('visualization', '1.0', {'packages':['corechart']});
+  google.setOnLoadCallback(drawFirstChart);
+  google.setOnLoadCallback(drawSecondChart);
+  function drawFirstChart() {
+
+    // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Incidents');
+      data.addColumn('number', '# of incidents');
+      var first = JSON.parse($("#first-data").html());
+      var first_data = new Array();
+
+      for (var key in first) {
+        first_data.push([key, parseInt(first[key])]);
+      }
+      data.addRows(first_data);
+
+                  // Set chart options
+        var options = {'title':'Number of incidents',
+          'width':800,
+          'height':300};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('first_chart'));
+      chart.draw(data, options);
+    }
+
+  function drawSecondChart() {
+    // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Incidents');
+      data.addColumn('number', '# of incidents');
+      var first = JSON.parse($("#second-data").html());
+      var second_data = new Array();
+
+      for (var key in first) {
+        second_data.push([key, parseInt(first[key])]);
+      }
+      data.addRows(second_data);
+
+                  // Set chart options
+        var options = {'title':'Incidents for each location',
+          'width':1000,
+          'height':9000,
+          'fontSize': 7,
+          'hAxis': {'logScale': true},
+          'chartArea': {'left': 100, 'right': 10, 'top': 50}
+          };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('second_chart'));
+          chart.draw(data, options);
+      }
+
+
+
+.row
+  %h3 First data
+  #first_chart
+.row
+  %h3 Second data
+  #second_chart
+
+
+%script{id: "first-data", type: "text/plain"}
+  = @first_format_json
+
+%script{id: "second-data", type: "text/plain"}
+  = @second_format_json
+
+
+

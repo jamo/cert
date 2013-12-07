@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'cert_open_data_visualizer', '~>0.0.5'
+gem 'sinatra'
+gem 'haml'
+
